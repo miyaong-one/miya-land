@@ -1,0 +1,27 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "static/uploads"
+public_folder: "/static/uploads"
+
+collections:
+  - name: "works"
+    label: "작업"
+    folder: "works"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "제목", name: "title", widget: "string" }
+      - { label: "날짜", name: "date", widget: "datetime" }
+      - { label: "내용", name: "body", widget: "markdown" }
+
+  - name: "diary"
+    label: "일기"
+    folder: "diary"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "제목", name: "title", widget: "string" }
+      - { label: "날짜", name: "date", widget: "datetime" }
+      - { label: "내용", name: "body", widget: "markdown" }
