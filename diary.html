@@ -2,26 +2,134 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>페이지 제목</title>
+  <title>Diary | Miya Land</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    body {
-      background: #e6f4ff;
-      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    html, body {
       margin: 0;
-      padding: 40px;
-      text-align: center;
+      padding: 0;
+      height: 100%;
+      background: radial-gradient(ellipse at bottom, #ccecff 0%, #a1d0f0 100%) no-repeat;
+      background-size: cover;
+      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      color: #222;
+      overflow-x: hidden;
     }
-    a {
-      display: inline-block;
-      margin-top: 40px;
+    .stars-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      animation: twinkle 2s infinite ease-in-out;
+    }
+    .white { background: white; }
+    .yellow { background: #fff89e; }
+    .pink { background: #ffc0cb; }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    header {
+      padding: 40px 0 20px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    header h1 {
+      font-family: 'mieszkanie9', cursive;
+      font-size: 42px;
+      margin-bottom: 8px;
+    }
+    nav {
+      margin-top: 0;
+    }
+    nav a {
+      margin: 0 12px;
       text-decoration: none;
-      color: #555;
+      font-family: 'Duality-Regular';
       font-size: 14px;
+      color: #444;
+      cursor: pointer;
+      padding: 6px 12px;
+      position: relative;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    nav a.active {
+      color: white;
+      font-weight: bold;
+    }
+    nav a.active::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      box-shadow:
+        0 0 6px white,
+        0 0 12px #fff89e,
+        0 0 20px #ffc0cb,
+        0 0 30px white;
+    }
+
+    .diary-entry {
+      background: rgba(255, 255, 255, 0.6);
+      padding: 20px;
+      margin: 40px auto;
+      max-width: 600px;
+      border-radius: 10px;
+      backdrop-filter: blur(6px);
+      font-size: 15px;
+      line-height: 1.8;
+      position: relative;
+      z-index: 2;
     }
   </style>
 </head>
 <body>
-  <h1>여기는 [페이지 이름]</h1>
-  <a href="index.html">← 돌아가기</a>
+  <div class="stars-bg" id="stars"></div>
+  <header>
+    <h1>Miya Land</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="works.html">Works</a>
+      <a href="diary.html" class="active">Diary</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="diary-entry">
+    2025.04.19 - 오늘도 조용히 마음을 들여다보는 하루. 따뜻한 햇살이 내 방 창문을 지나간다...
+  </div>
+
+  <script>
+    const starContainer = document.getElementById('stars');
+    const colors = ['white', 'yellow', 'pink'];
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      star.classList.add('star', color);
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDuration = `${Math.random() * 2 + 1.5}s`;
+      starContainer.appendChild(star);
+    }
+  </script>
 </body>
 </html>
