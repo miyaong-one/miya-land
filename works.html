@@ -40,17 +40,65 @@
       50% { opacity: 1; }
     }
 
-    h1 {
+    header {
+      padding: 40px 0 10px;
       text-align: center;
-      margin-top: 40px;
-      font-size: 32px;
+      position: relative;
+      z-index: 2;
+    }
+    header h1 {
+      font-family: 'mieszkanie9', cursive;
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      font-family: 'Duality-Regular';
+      font-size: 14px;
+      color: #444;
+      cursor: pointer;
+      padding: 6px 12px;
+      position: relative;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    nav a.active {
+      color: white;
+      font-weight: bold;
+    }
+    nav a.active::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      box-shadow:
+        0 0 6px white,
+        0 0 12px #fff89e,
+        0 0 20px #ffc0cb,
+        0 0 30px white;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 28px;
       z-index: 1;
       position: relative;
     }
     .container {
       display: flex;
       max-width: 1000px;
-      margin: 40px auto;
+      margin: 20px auto;
       z-index: 1;
       position: relative;
     }
@@ -95,7 +143,17 @@
 </head>
 <body>
   <div class="stars-bg" id="stars"></div>
-  <h1>작업 Works</h1>
+  <header>
+    <h1>Miya Land</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="works.html" class="active">Works</a>
+      <a href="diary.html">Diary</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <h2>작업 Works</h2>
   <div class="container">
     <div class="sidebar">
       <button class="active" onclick="showCategory('art')">Art</button>
