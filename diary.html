@@ -40,63 +40,35 @@
       50% { opacity: 1; }
     }
 
-    header {
-      padding: 80px 0 30px;
-      text-align: center;
-      position: relative;
-      z-index: 2;
+    .side-nav {
+      position: fixed;
+      top: 40px;
+      left: 40px;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
-    header h1 {
-      font-family: 'mieszkanie9', cursive;
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
-    nav {
-      margin-top: 0;
-    }
-    nav a {
-      margin: 0 12px;
-      text-decoration: none;
+    .side-nav a {
       font-family: 'Duality-Regular';
       font-size: 14px;
       color: #444;
-      cursor: pointer;
-      padding: 6px 12px;
-      position: relative;
+      text-decoration: none;
     }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    nav a.active {
+    .side-nav a:hover,
+    .side-nav a.active {
       color: white;
       font-weight: bold;
-    }
-    nav a.active::before {
-      content: '';
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 8px;
-      height: 8px;
-      background: white;
-      border-radius: 50%;
-      box-shadow:
-        0 0 6px white,
-        0 0 12px #fff89e,
-        0 0 20px #ffc0cb,
-        0 0 30px white;
     }
 
     .diary-entry {
       background: rgba(255, 255, 255, 0.6);
       padding: 20px;
-      margin: 40px auto;
+      margin: 120px auto;
       max-width: 600px;
       border-radius: 10px;
       backdrop-filter: blur(6px);
-      font-size: 15px;
-      line-height: 1.8;
+      font-size: 14px;
       position: relative;
       z-index: 2;
     }
@@ -104,15 +76,13 @@
 </head>
 <body>
   <div class="stars-bg" id="stars"></div>
-  <header>
-    <h1>Miya Land</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="works.html">Works</a>
-      <a href="diary.html" class="active">Diary</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+
+  <div class="side-nav">
+    <a href="index.html">Home</a>
+    <a href="works.html">Works</a>
+    <a href="diary.html" class="active">Diary</a>
+    <a href="contact.html">Contact</a>
+  </div>
 
   <div class="diary-entry">
     2025.04.19 - 오늘도 조용히 마음을 들여다보는 하루. 따뜻한 햇살이 내 방 창문을 지나간다...
