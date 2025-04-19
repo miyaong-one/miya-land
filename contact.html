@@ -40,8 +40,23 @@
       50% { opacity: 1; }
     }
 
+    .instagram-top {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 3;
+    }
+    .instagram-top a {
+      font-size: 18px;
+      color: #666;
+      text-decoration: none;
+    }
+    .instagram-top a:hover {
+      color: #222;
+    }
+
     header {
-      padding: 80px 0 30px;
+      padding: 100px 0 30px;
       text-align: center;
       position: relative;
       z-index: 2;
@@ -124,6 +139,11 @@
 </head>
 <body>
   <div class="stars-bg" id="stars"></div>
+  <div class="instagram-top">
+    <a href="https://www.instagram.com/o_one_____art/" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </div>
   <header>
     <h1>Miya Land</h1>
     <nav>
