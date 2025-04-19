@@ -16,7 +16,7 @@
     }
     body {
       margin: 0;
-      background: linear-gradient(145deg, #d8eaff, #c3dcf8, #a7cfff);
+      background: linear-gradient(145deg, #ccecff, #b5dcf5, #a1d0f0);
       background-attachment: fixed;
       color: #222;
       font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
@@ -75,10 +75,10 @@
       height: 4px;
       background: white;
       border-radius: 50%;
-      box-shadow: 0 0 6px 3px white;
+      box-shadow: 0 0 12px 6px white;
       opacity: 0.9;
       z-index: 50;
-      animation: starFall 2s ease-out forwards;
+      animation: starFall 3s ease-out forwards;
     }
     @keyframes sparkle {
       0% { opacity: 1; transform: scale(1); }
@@ -91,7 +91,7 @@
         opacity: 1;
       }
       100% {
-        transform: translate(-400px, 800px) scale(0.3);
+        transform: translate(-600px, 1000px) scale(0.2);
         opacity: 0;
       }
     }
@@ -135,15 +135,17 @@
       }
     });
 
-    // 자연스러운 별똥별 효과 (반짝이며 떨어짐)
+    // 자연스러운 별똥별 효과 (반짝이며 많이 떨어짐)
     setInterval(() => {
-      const star = document.createElement('div');
-      star.classList.add('shooting-star');
-      star.style.left = `${window.innerWidth - 100}px`;
-      star.style.top = `${Math.random() * window.innerHeight * 0.4}px`;
-      document.body.appendChild(star);
-      setTimeout(() => star.remove(), 2000);
-    }, 2500);
+      for (let i = 0; i < 2; i++) {
+        const star = document.createElement('div');
+        star.classList.add('shooting-star');
+        star.style.left = `${window.innerWidth - 100}px`;
+        star.style.top = `${Math.random() * window.innerHeight * 0.4}px`;
+        document.body.appendChild(star);
+        setTimeout(() => star.remove(), 3000);
+      }
+    }, 1500);
   </script>
 </body>
 </html>
