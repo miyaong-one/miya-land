@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Miya Land</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap" rel="stylesheet">
   <style>
     @font-face {
       font-family: 'mieszkanie9';
@@ -20,18 +18,52 @@
       margin: 0;
       font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
       background-color: #e2f1fc;
-      background-image: none;
       color: #222;
       line-height: 1.6;
-      overflow-x: hidden;
-      position: relative;
+    }
+    header {
+      padding: 40px 0 20px;
+      text-align: center;
+    }
+    h1 {
+      font-family: 'mieszkanie9', cursive;
+      font-size: 42px;
+    }
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      font-family: 'Duality-Regular';
+      font-size: 14px;
+      color: #444;
+      cursor: pointer;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+    .home-intro {
+      text-align: center;
+    }
+    .home-intro p {
+      font-family: 'DM Mono', monospace;
+      white-space: pre-line;
+    }
+    .home-intro img {
+      margin-top: 30px;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
   </style>
 </head>
 <body>
   <header>
-    <h1 style="font-family: 'mieszkanie9'; font-size: 42px; text-align: center; margin-top: 40px;">Miya Land</h1>
-    <nav style="text-align: center; font-family: 'Duality-Regular';">
+    <h1>Miya Land</h1>
+    <nav>
       <a onclick="showSection('home')">Home</a>
       <a onclick="showSection('works')">Works</a>
       <a onclick="showSection('diary')">Diary</a>
@@ -40,22 +72,22 @@
   </header>
 
   <section id="home" class="active">
-    <div class="home-intro" style="text-align: center; margin-top: 40px;">
-      <p style="font-family: 'DM Mono', monospace; white-space: pre-line;">hi.
+    <div class="home-intro">
+      <p>hi.
 안녕.
 난 너의 요정이야</p>
-      <img src="unicorn.jpeg" alt="유니콘 그림" style="max-width: 100%; border-radius: 10px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); margin-top: 30px;">
+      <img src="unicorn.jpeg" alt="유니콘 그림">
     </div>
   </section>
 
   <section id="works">
     <h2>작업</h2>
     <div class="work-item">
-      <img src="your-artwork1.jpg" alt="작업 샘플1" />
+      <img src="your-artwork1.jpg" alt="작업 샘플1">
       <p>〈은하수의 무늬〉, 2025, 디지털 드로잉</p>
     </div>
     <div class="work-item">
-      <img src="your-artwork2.jpg" alt="작업 샘플2" />
+      <img src="your-artwork2.jpg" alt="작업 샘플2">
       <p>〈밤의 속삭임〉, 2024, 아크릴과 종이</p>
     </div>
   </section>
@@ -70,19 +102,11 @@
   <section id="contact">
     <h2>연락</h2>
     <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
-      <input type="text" name="name" placeholder="이름" required />
-      <input type="email" name="email" placeholder="이메일" required />
+      <input type="text" name="name" placeholder="이름" required>
+      <input type="email" name="email" placeholder="이메일" required>
       <textarea name="message" rows="5" placeholder="메시지"></textarea>
       <button type="submit">보내기</button>
     </form>
   </section>
-
-  <script>
-    function showSection(id) {
-      const sections = document.querySelectorAll('section');
-      sections.forEach(sec => sec.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-  </script>
 </body>
 </html>
