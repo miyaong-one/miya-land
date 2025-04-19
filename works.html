@@ -2,26 +2,137 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>페이지 제목</title>
+  <title>Works | Miya Land</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     body {
-      background: #e6f4ff;
-      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
       margin: 0;
-      padding: 40px;
-      text-align: center;
+      background: radial-gradient(ellipse at bottom, #ccecff 0%, #a1d0f0 100%);
+      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      color: #222;
+      overflow-x: hidden;
     }
-    a {
-      display: inline-block;
+    .stars-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      animation: twinkle 2s infinite ease-in-out;
+    }
+    .white { background: white; }
+    .yellow { background: #fff89e; }
+    .pink { background: #ffc0cb; }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    h1 {
+      text-align: center;
       margin-top: 40px;
-      text-decoration: none;
-      color: #555;
+      font-size: 32px;
+      z-index: 1;
+      position: relative;
+    }
+    .container {
+      display: flex;
+      max-width: 1000px;
+      margin: 40px auto;
+      z-index: 1;
+      position: relative;
+    }
+    .sidebar {
+      width: 180px;
+      padding: 20px;
+    }
+    .sidebar button {
+      display: block;
+      margin-bottom: 10px;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: #fff;
+      border-radius: 6px;
+      cursor: pointer;
       font-size: 14px;
+    }
+    .sidebar button.active {
+      background: #a1d0f0;
+      color: white;
+      font-weight: bold;
+    }
+    .content {
+      flex: 1;
+      padding: 20px;
+    }
+    .work-item {
+      display: none;
+    }
+    .work-item.active {
+      display: block;
+    }
+    .work-thumb {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
-  <h1>여기는 [페이지 이름]</h1>
-  <a href="index.html">← 돌아가기</a>
+  <div class="stars-bg" id="stars"></div>
+  <h1>작업 Works</h1>
+  <div class="container">
+    <div class="sidebar">
+      <button class="active" onclick="showCategory('art')">Art</button>
+      <button onclick="showCategory('media')">Media</button>
+      <button onclick="showCategory('photo')">Photo</button>
+    </div>
+    <div class="content">
+      <div class="work-item active" id="art">
+        <img class="work-thumb" src="art1.jpg" alt="Art work sample">
+        <p>아트 작업 설명</p>
+      </div>
+      <div class="work-item" id="media">
+        <img class="work-thumb" src="media1.jpg" alt="Media work sample">
+        <p>미디어 작업 설명</p>
+      </div>
+      <div class="work-item" id="photo">
+        <img class="work-thumb" src="photo1.jpg" alt="Photo work sample">
+        <p>포토 작업 설명</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const starContainer = document.getElementById('stars');
+    const colors = ['white', 'yellow', 'pink'];
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      star.classList.add('star', color);
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDuration = `${Math.random() * 2 + 1.5}s`;
+      starContainer.appendChild(star);
+    }
+
+    function showCategory(name) {
+      document.querySelectorAll('.work-item').forEach(el => el.classList.remove('active'));
+      document.getElementById(name).classList.add('active');
+      document.querySelectorAll('.sidebar button').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
 </body>
 </html>
