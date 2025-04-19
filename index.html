@@ -71,14 +71,14 @@
     }
     .shooting-star {
       position: fixed;
-      width: 6px;
-      height: 6px;
-      background: white;
+      width: 2px;
+      height: 120px;
+      background: linear-gradient(to bottom, white, rgba(255, 255, 255, 0));
       border-radius: 50%;
-      box-shadow: 0 0 15px 8px white, 0 0 30px 12px rgba(255,255,255,0.4);
-      opacity: 0.9;
-      z-index: 50;
-      animation: starFall 3s ease-out forwards;
+      opacity: 0.8;
+      z-index: 30;
+      animation: starFall 2.5s ease-out forwards;
+      filter: blur(0.8px);
     }
     @keyframes sparkle {
       0% { opacity: 1; transform: scale(1); }
@@ -91,7 +91,7 @@
         opacity: 1;
       }
       100% {
-        transform: translate(-600px, 1000px) scale(0.2);
+        transform: translate(-400px, 800px) scale(0.6);
         opacity: 0;
       }
     }
@@ -135,15 +135,15 @@
       }
     });
 
-    // 반짝이며 떨어지는 별똥별 (화면 전체에서 랜덤하게 1개씩)
+    // 자연스러운 얇고 긴 별똥별 (랜덤 위치, 반짝이는 꼬리)
     setInterval(() => {
       const star = document.createElement('div');
       star.classList.add('shooting-star');
       star.style.left = `${Math.random() * window.innerWidth}px`;
       star.style.top = `${Math.random() * window.innerHeight * 0.3}px`;
       document.body.appendChild(star);
-      setTimeout(() => star.remove(), 3000);
-    }, 1200);
+      setTimeout(() => star.remove(), 2500);
+    }, 1300);
   </script>
 </body>
 </html>
