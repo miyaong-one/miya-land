@@ -61,16 +61,37 @@
       font-weight: bold;
     }
 
+    .diary-list {
+      max-width: 700px;
+      margin: 120px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      z-index: 2;
+      position: relative;
+    }
     .diary-entry {
       background: rgba(255, 255, 255, 0.6);
+      border-radius: 12px;
       padding: 20px;
-      margin: 120px auto;
-      max-width: 600px;
-      border-radius: 10px;
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(5px);
+    }
+    .diary-entry img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+    .diary-entry h3 {
+      margin: 0 0 12px;
+      font-size: 18px;
+    }
+    .diary-entry p {
+      margin: 0;
       font-size: 14px;
-      position: relative;
-      z-index: 2;
+      line-height: 1.7;
+      color: #333;
     }
   </style>
 </head>
@@ -84,8 +105,17 @@
     <a href="contact.html">Contact</a>
   </div>
 
-  <div class="diary-entry">
-    2025.04.19 - 오늘도 조용히 마음을 들여다보는 하루. 따뜻한 햇살이 내 방 창문을 지나간다...
+  <div class="diary-list">
+    <div class="diary-entry">
+      <img src="thumb-2025-04-19.jpg" alt="대표 이미지">
+      <h3>2025.04.19 - 따뜻한 햇살이 창문을 지나가던 날</h3>
+      <p>
+        오늘도 조용히 마음을 들여다보는 하루. 따뜻한 햇살이 내 방 창문을 지나간다.  
+        시간은 천천히 흘렀고, 고양이는 햇살 속에서 꾸벅꾸벅 졸고 있었다.  
+        어쩌면 이런 평범한 날들이 내가 가장 기억하고 싶은 순간들일지도 모른다.
+      </p>
+    </div>
+    <!-- 추가 일기 항목은 여기 복붙해서 작성 -->
   </div>
 
   <script>
