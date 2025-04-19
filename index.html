@@ -71,11 +71,11 @@
     }
     .shooting-star {
       position: fixed;
-      width: 2px;
-      height: 80px;
+      width: 3px;
+      height: 100px;
       background: linear-gradient(to bottom, white, transparent);
-      opacity: 0.6;
-      z-index: 0;
+      opacity: 1;
+      z-index: 10;
       animation: diagonalFall 2s linear forwards;
       transform: rotate(45deg);
     }
@@ -85,7 +85,7 @@
       100% { opacity: 1; transform: scale(1); }
     }
     @keyframes diagonalFall {
-      from {transform: translateY(-100px) translateX(0) rotate(45deg); opacity: 0.6;}
+      from {transform: translateY(-100px) translateX(0) rotate(45deg); opacity: 1;}
       to {transform: translateY(100vh) translateX(200px) rotate(45deg); opacity: 0;}
     }
   </style>
@@ -105,7 +105,7 @@
     <div class="home-intro">
       <p>hi.
 안녕.
-난 너의 요정이야.</p>
+난 너의 요정이야</p>
       <img src="unicorn.jpg" alt="유니콘 그림">
     </div>
   </section>
@@ -128,15 +128,15 @@
       }
     });
 
-    // 별똥별 효과
+    // 별똥별 효과 (더 잘 보이게 개선)
     setInterval(() => {
       const shootingStar = document.createElement('div');
       shootingStar.classList.add('shooting-star');
       shootingStar.style.left = `${Math.random() * window.innerWidth}px`;
-      shootingStar.style.top = `-50px`;
+      shootingStar.style.top = `-100px`;
       document.body.appendChild(shootingStar);
       setTimeout(() => shootingStar.remove(), 2000);
-    }, 3000);
+    }, 1500);
   </script>
 </body>
 </html>
