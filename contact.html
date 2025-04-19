@@ -40,73 +40,30 @@
       50% { opacity: 1; }
     }
 
-    .instagram-top {
-      position: absolute;
-      top: 28px;
-      right: 28px;
+    .side-nav {
+      position: fixed;
+      top: 40px;
+      left: 40px;
       z-index: 3;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
-    .instagram-top a {
-      font-size: 18px;
-      color: #666;
-      text-decoration: none;
-    }
-    .instagram-top a:hover {
-      color: #222;
-    }
-
-    header {
-      margin-top: 240px;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-    header h1 {
-      font-family: 'mieszkanie9', cursive;
-      font-size: 64px;
-      margin-bottom: 14px;
-    }
-    nav {
-      margin-top: 0;
-    }
-    nav a {
-      margin: 0 16px;
-      text-decoration: none;
+    .side-nav a {
       font-family: 'Duality-Regular';
-      font-size: 15px;
+      font-size: 14px;
       color: #444;
-      cursor: pointer;
-      padding: 6px 12px;
-      position: relative;
+      text-decoration: none;
     }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    nav a.active {
+    .side-nav a:hover,
+    .side-nav a.active {
       color: white;
       font-weight: bold;
     }
-    nav a.active::before {
-      content: '';
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 8px;
-      height: 8px;
-      background: white;
-      border-radius: 50%;
-      box-shadow:
-        0 0 6px white,
-        0 0 12px #fff89e,
-        0 0 20px #ffc0cb,
-        0 0 30px white;
-    }
-
     .contact-form {
       background: rgba(255, 255, 255, 0.6);
       padding: 20px;
-      margin: 40px auto 80px;
+      margin: 120px auto;
       max-width: 500px;
       border-radius: 10px;
       backdrop-filter: blur(6px);
@@ -139,20 +96,13 @@
 </head>
 <body>
   <div class="stars-bg" id="stars"></div>
-  <div class="instagram-top">
-    <a href="https://www.instagram.com/o_one_____art/" target="_blank">
-      <i class="fab fa-instagram"></i>
-    </a>
+
+  <div class="side-nav">
+    <a href="index.html">Home</a>
+    <a href="works.html">Works</a>
+    <a href="diary.html">Diary</a>
+    <a href="contact.html" class="active">Contact</a>
   </div>
-  <header>
-    <h1>Miya Land</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="works.html">Works</a>
-      <a href="diary.html">Diary</a>
-      <a href="contact.html" class="active">Contact</a>
-    </nav>
-  </header>
 
   <div class="contact-form">
     <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
